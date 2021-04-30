@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+<link rel="stylesheet" href="/static/css/management.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 3.13.2, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+     <!--for font of page the link-->
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Lora">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--///////////////////////-->
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"url": "index.html"
+}</script>
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#478ac9">
+    <link rel="canonical" href="index.html">
+    <meta property="og:url" content="index.html">
+  </head>
+  <body class="u-body">
+    <div class="container-fluid">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <!--show logo for JOECHOP-->
+            <a class ="navbar-brand" href="#">
+                <img src="/static/logo_3.png" width="250px" style="height: fit-content;" alt="logo_image" >
+            </a>
+            <!--button is for mobile applciation page.. to give that three bar line when window go smaller-->
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1" style="place-content: space-around; ">
+                <ul class="navbar-nav">
+                    <li class="nav-item" style="margin-left: 20px; margin-right: 20px;">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 20px; margin-right: 20px;">
+                        <a class="nav-link" href="/customer">Customers</a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 20px; margin-right: 20px;">
+                        <a class="nav-link" href="/employee">Employee</a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 20px; margin-right: 20px;">
+                        <a class="nav-link" href="/management">Management</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>   
+       </div> 
+       <form action="/manageemp" autocomplete="on" method = "POST" enctype="multipart/form-data" >
+        <h1> LOGIN with Employee ID</h1>
+        <label for="Employee_ID">Employee ID:</label>
+        <input type="text" id="Employee_ID" name="Employee_ID">
+        <button type="submit" formaction="/modifyemp"> Search By Employee ID</button>
+        <!--<button type="submit" formaction="/insertemp"> Insert Employee</button>-->
+        <button type="submit" formaction="/showall"> Show All Employee</button>
+        <br>
+       
+        <div>
+          <form action="{{url_for('insertemp')}}" method="POST">      
+              <input type="text" name="id" placeholder="ID">           
+              <input type="text" name="name" placeholder="Name">  
+              <input type="text" name="title" placeholder="Title">
+              <input type="text" name="phone" placeholder="Phone">  
+              <input type="text" name="email" placeholder="Email">     
+              <button type="submit" formaction="/insertemp">Save</button>
+            <!--<button class="btn btn-block">Save</button>-->
+          </form>
+        </div> 
+        <br>
+
+    <section class="u-align-center u-clearfix u-section-1" id="carousel_72e6">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+              <col width="18.9%">
+              <col width="11.8%">
+              <col width="14.7%">
+              <col width="12.8%">
+              <col width="17%">
+              <col width="15.4%">
+              <col width="6.3%">
+              <col width="3.3%">
+            </colgroup>
+            
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+              <tr style="height: 94px;">
+                <th class="u-table-cell u-table-cell-1">Employee ID</th>
+                <th class="u-table-cell u-table-cell-2">Name</th>
+                <th class="u-table-cell u-table-cell-3">Title</th>
+                <th class="u-table-cell u-table-cell-4">Phone</th>
+                <th class="u-table-cell u-table-cell-5">Email</th>
+                <th class="u-table-cell u-table-cell-6">Plan ID</th>
+                <th class="u-table-cell u-table-cell-7"></th>
+                <th class="u-table-cell u-table-cell-8"></th>
+              </tr>
+            </thead>
+
+          
+            <tbody class="u-table-body">
+              {% for item in data %}
+              <tr style="height: 45px;">
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-9">{{item[0]}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-10">{{item[1]}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-11">{{item[2]}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-12">{{item[3]}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-13">{{item[4]}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-14">1001</td>
+              </tr>  
+              <button type="submit" formaction="/edit">Edit</button>
+              
+                <!--<td formaction= "/edit" type="submit" class="u-align-left u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-table-cell u-table-cell-47" >Edit</td>
+                  <td type="button" class="u-align-left u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-table-cell u-table-cell-48">Delete</td>
+              -->
+              {% endfor %}
+              {% for row in emp %}
+              <tr style="height: 45px;">
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-9">{{row.0}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-10">{{row.1}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-11">{{row.2}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-12">{{row.3}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-13">{{row.4}}</td>
+                <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-14">1001</td>
+                <td formaction="/edit" type="button" class="u-align-left u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-table-cell u-table-cell-47">Edit</td>
+                <td class="u-align-left u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-table-cell u-table-cell-48 btn navbar-btn btn-sm" type="button" style="float:left">Delete</td>
+              </tr>
+              {% endfor %}
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>
